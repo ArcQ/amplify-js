@@ -31,6 +31,7 @@ const labelMap = {
 };
 
 export interface IAuthPieceProps {
+	defaultValues?: Record<string,string>;
 	authData?: any;
 	authState?: string;
 	errorMessage?: string;
@@ -90,6 +91,7 @@ export default class AuthPiece<
 					label={I18n.get('Email')}
 					placeholder={I18n.get('Enter your email')}
 					required={true}
+					defaultValue={this.props.defaultValues && this.props.defaultValues.email}
 					{...setTestId(TEST_ID.AUTH.EMAIL_INPUT)}
 					value={value}
 				/>
@@ -104,6 +106,7 @@ export default class AuthPiece<
 					placeholder={I18n.get('Enter your phone number')}
 					keyboardType="phone-pad"
 					required={true}
+					defaultValue={this.props.defaultValues && this.props.defaultValues.phoneNumber}
 					{...setTestId(TEST_ID.AUTH.PHONE_INPUT)}
 					value={value}
 				/>
@@ -116,6 +119,7 @@ export default class AuthPiece<
 					label={I18n.get(this.getUsernameLabel())}
 					placeholder={I18n.get('Enter your username')}
 					required={true}
+					defaultValue={this.props.defaultValues && this.props.defaultValues.username}
 					{...setTestId(TEST_ID.AUTH.USERNAME_INPUT)}
 					value={value}
 				/>

@@ -30,7 +30,9 @@ import { setTestId } from '../Utils'
 
 const logger = new Logger('SignIn');
 
-interface ISignInProps extends IAuthPieceProps {}
+interface ISignInProps extends IAuthPieceProps {
+	HeaderImage?: Function;
+}
 
 interface ISignInState extends IAuthPieceState {
 	password?: string;
@@ -79,10 +81,12 @@ export default class SignIn extends AuthPiece<ISignInProps, ISignInState> {
 	}
 
 	showComponent(theme: AmplifyThemeType) {
+		const HeaderImage = this.props.HeaderImage;
 		return (
 			<Wrapper>
 				<View style={theme.section}>
 					<View>
+						{HeaderImage && <HeaderImage />}
 						<Header
 							theme={theme}
 							testID={TEST_ID.AUTH.SIGN_IN_TO_YOUR_ACCOUNT_TEXT}
@@ -98,6 +102,7 @@ export default class SignIn extends AuthPiece<ISignInProps, ISignInState> {
 								placeholder={I18n.get('Enter your password')}
 								secureTextEntry={true}
 								required={true}
+								defaultValue={this.props.defaultValues && this.props.defaultValues.password}
 								{...setTestId(TEST_ID.AUTH.PASSWORD_INPUT)}
 							/>
 							<AmplifyButton
@@ -128,7 +133,6 @@ export default class SignIn extends AuthPiece<ISignInProps, ISignInState> {
 						</View>
 						<ErrorRow theme={theme}>{this.state.error}</ErrorRow>
 					</View>
-					<SignedOutMessage {...this.props} />
 				</View>
 			</Wrapper>
 		);

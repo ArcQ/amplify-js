@@ -116,7 +116,7 @@ export default class SignUp extends AuthPiece<ISignUpProps, ISignUpState> {
 				});
 			}
 
-			/* 
+			/*
             sort fields based on following rules:
             1. Fields with displayOrder are sorted before those without displayOrder
             2. Fields with conflicting displayOrder are sorted alphabetically by key
@@ -245,7 +245,7 @@ export default class SignUp extends AuthPiece<ISignUpProps, ISignUpState> {
 		this.sortFields();
 		return (
 			<Wrapper>
-				<ScrollView 
+				<ScrollView
 					style={theme.sectionScroll}
 					keyboardShouldPersistTaps='handled'
 					>
@@ -310,7 +310,6 @@ export default class SignUp extends AuthPiece<ISignUpProps, ISignUpState> {
 						</LinkCell>
 					</View>
 					<ErrorRow theme={theme}>{this.state.error}</ErrorRow>
-					<SignedOutMessage {...this.props} />
 				</ScrollView>
 			</Wrapper>
 		);

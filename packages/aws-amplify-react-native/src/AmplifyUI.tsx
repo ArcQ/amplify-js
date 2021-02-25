@@ -64,7 +64,7 @@ export const FormField: FC<IFormFieldProps> = props => {
 				style={theme.input}
 				autoCapitalize="none"
 				autoCorrect={false}
-				placeholderTextColor={placeholderColor}
+				placeholderTextColor={theme.placeholderTextColor || placeholderColor}
 				{...props}
 			/>
 		</View>

@@ -38,6 +38,7 @@ export interface ISignUpField {
 	key: string;
 	required: boolean;
 	placeholder?: string;
+	placeholderTextColor?: string;
 	type?: string;
 	displayOrder: number;
 	testID?: string;
